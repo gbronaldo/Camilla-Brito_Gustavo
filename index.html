@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Instagram</title>
+
+    <style>
+        #img{
+            width: 250px;
+            height: 173px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img src="oie_transparent.png" id="img">
+</body>
+<!-- <body>
+    <div style='margin-top: 40px'>
+        <h1>Listar fotos Instagram</h1>
+    </div>
+    <div id='instagram'></div>
+    <script>
+        var token = '317790634.0540975.6b628a07ac4b42feba13685204466837';
+        
+        // fetch('https://api.instagram.com/v1/users/self/?access_token='+token)
+        fetch('https://api.instagram.com/v1/users/self/media/recent/?access_token='+token)
+        // .then(function(response) {return response.json()})
+        // .then(function(response) {
+        //     console.log(response)    
+        // })
+
+
+        // fetch('https://api.instagram.com/v1/users/self/media/recent/?access_token='+token)
+        .then(function(response) {return response.json()})
+        .then(function(response) {
+            console.log(response)
+            // response.data.map(value=>{
+            //     var img = document.createElement('img')
+            //     img.src = value.images.low_resolution.url //standard
+            //     img.style = 'margin-left:15px; margin:5px'
+            //     var src = document.getElementById('instagram')
+            //     src.appendChild(img)
+            // })
+            try {
+                response.data.map(value=>{
+                var v = document.createElement('video')
+                vi= value.type //standard
+                console.log(vi);
+                if(vi == 'video'){
+                    console.log('---------------');
+                    console.log(vi);
+                    var x = value.videos.low_resolution.url;
+                    console.log(x);
+                    console.log('===============');
+                    
+                    v.setAttribute('src',x);
+                    v.setAttribute('controls','controls');
+                    document.body.appendChild(v);
+                    // v.src = value.videos.low_resolution.url;
+                    // var src = document.getElementById('instagram')
+                    // src.appendChild(video)
+                }
+                // img.src = value.videos.low_resolution.url //standard
+                // img.style = 'margin-left:15px; margin:5px'
+                // var src = document.getElementById('instagram')
+                // src.appendChild(img)
+            })
+            } catch (error) {
+              console.log(error);
+            }
+        })
+    </script>
+</body> -->
+</html>
